@@ -1,42 +1,164 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
 <meta charset="UTF-8">
 <title>Carl Norlanders Svensexa</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0f0f0f;
+color:white;
+text-align:center;
+}
+
+header{
+background:linear-gradient(120deg,#ff3c38,#ff8c42);
+padding:80px 20px;
+}
+
+h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:20px;
+opacity:0.9;
+}
+
+section{
+padding:60px 20px;
+max-width:1000px;
+margin:auto;
+}
+
+h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.budget button{
+background:#ff3c38;
+border:none;
+padding:15px 25px;
+margin:10px;
+font-size:18px;
+color:white;
+border-radius:8px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.budget button:hover{
+transform:scale(1.1);
+background:#ff8c42;
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.gallery img{
+width:260px;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+.lore{
+background:#1b1b1b;
+border-radius:12px;
+padding:30px;
+margin-top:30px;
+}
+
+.lore p{
+margin:12px;
+}
+
+.quote-box{
+margin-top:20px;
+font-size:22px;
+font-style:italic;
+}
+
+button.quote-btn{
+margin-top:20px;
+padding:12px 20px;
+font-size:16px;
+background:#ff3c38;
+border:none;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.countdown{
+font-size:28px;
+margin-top:20px;
+}
+
+footer{
+background:#1a1a1a;
+padding:40px;
+margin-top:40px;
+}
+
+</style>
+
 </head>
+
 
 <body>
 
 <header>
+
 <h1>🎉 Carl Norlanders Svensexa 🎉</h1>
-<p>En dag Carl sent kommer glömma...</p>
+
+<p class="subtitle">
+En dag Carl sent kommer glömma...
+</p>
+
+<div class="countdown" id="countdown"></div>
+
 </header>
 
-<section class="invite">
 
-<h2>Du är inbjuden!</h2>
+<section>
+
+<h2>Du är inbjuden</h2>
 
 <p>
 Du är varmt välkommen till <b>Carl Norlanders svensexa</b>.
 </p>
 
 <p>
-Det viktigaste för Carl är att alla kan delta – därför anpassar vi svensexan efter budget.
+Det viktigaste för Carl är att alla kan delta – därför anpassas svensexan efter budget.
 </p>
 
-<p>
-Vänligen meddela vilken budget som passar dig:
-</p>
+<p>Meddela vilken budget som passar dig:</p>
 
-<ul class="budget">
-<li>3500 kr</li>
-<li>5500 kr</li>
-<li>8000 kr</li>
-</ul>
+<div class="budget">
+
+<button>3500 kr</button>
+<button>5500 kr</button>
+<button>8000 kr</button>
+
+</div>
 
 <p>
-Maila ditt svar till:
+Maila svar till:
 <br>
 <b>Oscar_frisk@hotmail.com</b>
 </p>
@@ -44,31 +166,32 @@ Maila ditt svar till:
 </section>
 
 
-<section class="dates">
+
+<section>
 
 <h2>Datum</h2>
 
 <p>
-Carls schema för maj är inte helt spikat ännu, men svensexan kommer ske under en av följande helger:
+Svensexan kommer ske under en av dessa helger:
 </p>
 
-<ul>
-<li>22 maj</li>
-<li>29 maj</li>
-</ul>
+<p>
+<b>22 maj</b> eller <b>29 maj</b>
+</p>
 
 <p>
-Om du redan nu vet att du inte kan en av helgerna – meddela gärna detta.
+Om du redan nu vet att du inte kan en av helgerna – meddela detta.
 </p>
 
 </section>
 
 
-<section class="gallery">
+
+<section>
 
 <h2>Carl i sitt naturliga habitat</h2>
 
-<div class="images">
+<div class="gallery">
 
 <img src="images/carl1.jpg">
 <img src="images/carl2.jpg">
@@ -79,22 +202,39 @@ Om du redan nu vet att du inte kan en av helgerna – meddela gärna detta.
 </section>
 
 
-<section class="quotes">
 
-<h2>Berömda citat från Carl</h2>
+<section class="lore">
 
-<ul>
+<h2>Carl Lore</h2>
 
-<li>"Det där löser sig."</li>
-<li>"Hur svårt kan det vara?"</li>
-<li>"Jag kör."</li>
-
-</ul>
+<p>• Har sagt "det löser sig" minst 400 gånger.</p>
+<p>• Tror fortfarande att "en sista öl" är en riktig sak.</p>
+<p>• Har aldrig frivilligt gått hem före 02.</p>
+<p>• Kan planera ett helt äventyr på 3 minuter.</p>
+<p>• Är övertygad om att han är bättre än GPS.</p>
+<p>• Har minst en historia som börjar med: "det var faktiskt inte mitt fel..."</p>
 
 </section>
 
 
-<section class="info">
+
+<section>
+
+<h2>Berömda citat från Carl</h2>
+
+<div class="quote-box" id="quote">
+"Det där löser sig."
+</div>
+
+<button class="quote-btn" onclick="newQuote()">
+Generera Carl-citat
+</button>
+
+</section>
+
+
+
+<section>
 
 <h2>Mer information</h2>
 
@@ -103,21 +243,70 @@ Mer information om aktiviteter kommer i slutet av mars när budgeten är satt.
 </p>
 
 <p>
-Har du förslag eller önskemål – hör gärna av dig!
+Har du förslag eller önskemål – hör gärna av dig.
 </p>
 
 <h3>OSA senast 31/03</h3>
 
 <p>
-📧 Oscar_frisk@hotmail.com
+Oscar_frisk@hotmail.com
 </p>
 
 </section>
 
 
+
 <footer>
-<p>Planerat av Carls fantastiska vänner</p>
+
+Planerat av Carls fantastiska vänner
+
 </footer>
+
+
+
+<script>
+
+const quotes = [
+
+"Det där löser sig.",
+"Hur svårt kan det vara?",
+"Jag kör.",
+"En sista då.",
+"Det var faktiskt inte mitt fel.",
+"Vi löser det på plats.",
+"Det blir kul, jag lovar."
+
+]
+
+function newQuote(){
+
+const random = quotes[Math.floor(Math.random()*quotes.length)]
+
+document.getElementById("quote").innerText = random
+
+}
+
+
+
+const targetDate = new Date("May 22, 2026 12:00").getTime()
+
+const timer = setInterval(function(){
+
+const now = new Date().getTime()
+
+const distance = targetDate - now
+
+const days = Math.floor(distance / (1000*60*60*24))
+const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60))
+const minutes = Math.floor((distance % (1000*60*60))/(1000*60))
+
+document.getElementById("countdown").innerHTML =
+days + " dagar " + hours + " timmar " + minutes + " minuter kvar"
+
+},1000)
+
+</script>
+
 
 </body>
 </html>
