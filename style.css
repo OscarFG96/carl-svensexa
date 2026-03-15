@@ -1,0 +1,49 @@
+body {
+font-family: Arial;
+background: #111;
+color: white;
+margin: 0;
+text-align: center;
+}
+
+header {
+background: #e63946;
+padding: 40px;
+}
+
+h1 {
+font-size: 40px;
+}
+
+section {
+padding: 40px;
+max-width: 800px;
+margin: auto;
+}
+
+.budget li {
+font-size: 22px;
+margin: 10px;
+}
+
+.images {
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+.images img {
+width: 250px;
+border-radius: 10px;
+}
+
+.quotes li {
+margin: 10px;
+font-style: italic;
+}
+
+footer {
+background: #222;
+padding: 20px;
+}
